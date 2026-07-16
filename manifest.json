@@ -1,0 +1,14 @@
+{
+  "name": "Koperasi PT. Cemaru Lestari",
+  "short_name": "Koperasi Cemaru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Theme browser/mobile -->
+  <meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Title -->
+  <title>Koperasi PT. Cemaru Lestari — Aplikasi Kasir</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Browser favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- iPhone Home Screen -->
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Progressive Web App -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Optional: iPhone standalone mode -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="M4 11.5L12 4l8 7.5"/><path d="M6 10v9.5h5V14h2v5.5h5V10"/></symbol>
+    <symbol id="ic-box" viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v9l9 4 9-4V8"/><path d="M12 12v9"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><line x1="9" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="9" y1="18" x2="21" y2="18"/><circle cx="4.2" cy="6" r="1.3"/><circle cx="4.2" cy="12" r="1.3"/><circle cx="4.2" cy="18" r="1.3"/></symbol>
+    <symbol id="ic-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2.5 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L22 7H6.2"/></symbol>
+    <symbol id="ic-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></symbol>
+    <symbol id="ic-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7.5v5l4 2"/></symbol>
+    <symbol id="ic-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><circle cx="17.3" cy="9" r="2.6"/><path d="M15.6 14.2c2.7.4 4.6 2.5 4.6 5.8"/></symbol>
+    <symbol id="ic-card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></symbol>
+    <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+    <symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 4v11.5"/><path d="M7.5 11.5L12 16l4.5-4.5"/><path d="M4.5 18.5h15v2h-15z"/></symbol>
+    <symbol id="ic-upload" viewBox="0 0 24 24"><path d="M12 20V8.5"/><path d="M7.5 13L12 8.5l4.5 4.5"/><path d="M4.5 3.5h15v2h-15z"/></symbol>
+    <symbol id="ic-barchart" viewBox="0 0 24 24"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="19" y1="20" x2="19" y2="14"/></symbol>
+    <symbol id="ic-trending" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-9"/><path d="M14.5 6H21v6.5"/></symbol>
+    <symbol id="ic-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3.1"/><path d="M6.3 18.6a6 6 0 0 1 11.4 0"/></symbol>
+    <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/><path d="M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="ic-trash" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="ic-pie" viewBox="0 0 24 24"><path d="M12 3v9h9a9 9 0 1 1-9-9z"/><path d="M13 3.1A9 9 0 0 1 20.9 11H13z"/></symbol>
+    <symbol id="ic-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></symbol>
+    <symbol id="ic-headset" viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.6"/><rect x="17" y="13" width="4" height="6" rx="1.6"/><path d="M20 19v1a3 3 0 0 1-3 3h-3"/></symbol>
+    <symbol id="ic-bell" viewBox="0 0 24 24"><path d="M6 17h12l-1.5-2.2V10a4.5 4.5 0 0 0-9 0v4.8L6 17z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="ic-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="ic-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+    <symbol id="ic-arrow-right" viewBox="0 0 24 24"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></symbol>
+    <symbol id="ic-package-alert" viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v9l9 4 9-4V8"/><line x1="12" y1="13" x2="12" y2="16.3"/><circle cx="12" cy="18.6" r="0.6" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-badge"><img src="logo.png" alt="Logo Koperasi"></div>
+    <div class="login-logo brand-font">Koperasi<span>Cemaru Lestari</span></div>
+    <div class="login-tagline">Masuk ke Sistem Kasir &amp; Stok</div>
+    <form id="formLogin" onsubmit="return prosesLogin(event)">
+      <div class="field" style="margin-bottom:14px;">
+        <label>Username</label>
+        <input type="text" id="loginUsername" autocomplete="username" required placeholder="admin">
+      </div>
+      <div class="field" style="margin-bottom:14px;">
+        <label>Password</label>
+        <input type="password" id="loginPassword" autocomplete="current-password" required placeholder="••••••••">
+      </div>
+      <div class="login-error" id="loginError" style="display:none;"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Masuk</button>
+    </form>
+    <div class="login-hint">Login pertama kali? Gunakan <strong>admin</strong> / <strong>admin123</strong>, lalu segera ganti password di menu <em>Akun Admin</em>.</div>
+  </div>
+</div>
+
+<div class="app" id="appRoot">
+
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar(false)"></div>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="brand-badge"><img src="logo.png" alt="Logo Koperasi"></div>
+        <div>
+          <div class="logo brand-font">Koperasi<span>Cemaru Lestari</span></div>
+          <div class="tagline">Sistem Kasir &amp; Stok</div>
+        </div>
+      </div>
+      <button class="sidebar-close-btn" onclick="toggleSidebar(false)" aria-label="Tutup menu"><svg class="icon-svg" style="width:16px;height:16px;"><use href="#ic-close"/></svg></button>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-item dash active" data-target="dashboard" onclick="showSection('dashboard', this)" title="Dashboard">
+        <svg class="icon-svg"><use href="#ic-home"/></svg><span class="nav-label">Dashboard</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Data Barang</div>
+      <div class="nav-item" data-target="barang-tambah" onclick="showSection('barang-tambah', this)" title="Tambah Barang"><svg class="icon-svg"><use href="#ic-box"/></svg><span class="nav-label">Tambah Barang</span></div>
+      <div class="nav-item" data-target="barang-daftar" onclick="showSection('barang-daftar', this)" title="Daftar & Edit Barang"><svg class="icon-svg"><use href="#ic-list"/></svg><span class="nav-label">Daftar &amp; Edit Barang</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Transaksi</div>
+      <div class="nav-item" data-target="jual-cash" onclick="showSection('jual-cash', this)" title="Penjualan Cash"><svg class="icon-svg"><use href="#ic-cart"/></svg><span class="nav-label">Penjualan Cash</span></div>
+      <div class="nav-item" data-target="jual-hutang" onclick="showSection('jual-hutang', this)" title="Penjualan Hutang"><svg class="icon-svg"><use href="#ic-file"/></svg><span class="nav-label">Penjualan Hutang</span></div>
+      <div class="nav-item" data-target="riwayat-transaksi" onclick="showSection('riwayat-transaksi', this)" title="Riwayat Transaksi"><svg class="icon-svg"><use href="#ic-history"/></svg><span class="nav-label">Riwayat Transaksi</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Data Hutang</div>
+      <div class="nav-item" data-target="daftar-hutang" onclick="showSection('daftar-hutang', this)" title="Daftar Hutang"><svg class="icon-svg"><use href="#ic-users"/></svg><span class="nav-label">Daftar Hutang</span></div>
+      <div class="nav-item" data-target="bayar-hutang" onclick="showSection('bayar-hutang', this)" title="Pembayaran Hutang"><svg class="icon-svg"><use href="#ic-card"/></svg><span class="nav-label">Pembayaran Hutang</span></div>
+      <div class="nav-item" data-target="riwayat-bayar" onclick="showSection('riwayat-bayar', this)" title="Riwayat Pembayaran"><svg class="icon-svg"><use href="#ic-calendar"/></svg><span class="nav-label">Riwayat Pembayaran</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Stok Barang</div>
+      <div class="nav-item" data-target="stok-masuk" onclick="showSection('stok-masuk', this)" title="Stok Masuk"><svg class="icon-svg"><use href="#ic-download"/></svg><span class="nav-label">Stok Masuk</span></div>
+      <div class="nav-item" data-target="stok-keluar" onclick="showSection('stok-keluar', this)" title="Stok Keluar"><svg class="icon-svg"><use href="#ic-upload"/></svg><span class="nav-label">Stok Keluar</span></div>
+      <div class="nav-item" data-target="riwayat-stok" onclick="showSection('riwayat-stok', this)" title="Riwayat Stok"><svg class="icon-svg"><use href="#ic-history"/></svg><span class="nav-label">Riwayat Stok</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Laporan</div>
+      <div class="nav-item" data-target="lap-penjualan" onclick="showSection('lap-penjualan', this)" title="Laporan Penjualan"><svg class="icon-svg"><use href="#ic-barchart"/></svg><span class="nav-label">Penjualan</span></div>
+      <div class="nav-item" data-target="lap-hutang" onclick="showSection('lap-hutang', this)" title="Laporan Hutang"><svg class="icon-svg"><use href="#ic-card"/></svg><span class="nav-label">Hutang</span></div>
+      <div class="nav-item" data-target="lap-stok" onclick="showSection('lap-stok', this)" title="Laporan Stok"><svg class="icon-svg"><use href="#ic-box"/></svg><span class="nav-label">Stok</span></div>
+      <div class="nav-item" data-target="lap-untung" onclick="showSection('lap-untung', this)" title="Laporan Keuntungan"><svg class="icon-svg"><use href="#ic-trending"/></svg><span class="nav-label">Keuntungan</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Akun Admin</div>
+      <div class="nav-item" data-target="akun-admin" onclick="showSection('akun-admin', this)" title="Profil & Password"><svg class="icon-svg"><use href="#ic-user-circle"/></svg><span class="nav-label">Profil &amp; Password</span></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Cadangan Data</div>
+      <div class="nav-item" data-target="backup" onclick="showSection('backup', this)" title="Backup & Restore"><svg class="icon-svg"><use href="#ic-database"/></svg><span class="nav-label">Backup &amp; Restore</span></div>
+      <div class="nav-item" data-target="sampah" onclick="showSection('sampah', this)" title="Sampah (Undo Hapus)"><svg class="icon-svg"><use href="#ic-trash"/></svg><span class="nav-label">Sampah (Undo Hapus)</span></div>
+    </div>
+
+    <div class="sidebar-footer-card">
+      <div class="sfc-title"><svg class="icon-svg" style="width:16px;height:16px;"><use href="#ic-shield"/></svg> Koperasi PT. Cemaru Lestari</div>
+      <div class="sfc-text">Dikelola dari satu koperasi, untuk satu koperasi.</div>
+    </div>
+    <button class="sidebar-reset" onclick="resetAllData()" title="Reset Semua Data"><svg class="icon-svg" style="width:14px;height:14px;"><use href="#ic-history"/></svg><span class="nav-label">Reset Semua Data</span></button>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="btn-icon-toggle" id="sidebarToggleBtn" onclick="toggleSidebar()" title="Tampilkan/Sembunyikan Menu" aria-label="Tampilkan/Sembunyikan Menu">
+          <svg class="icon-svg"><use href="#ic-menu"/></svg>
+        </button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <div class="subtitle" id="pageSubtitle">Ringkasan koperasi hari ini</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="tb-pill" title="Admin yang sedang login">
+          <div class="tb-icon-circle"><svg class="icon-svg" style="width:17px;height:17px;"><use href="#ic-user-circle"/></svg></div>
+          <div class="tb-lines">
+            <div class="tb-line1" id="adminNameDisplay">Administrator</div>
+            <div class="tb-line2">Level Akses</div>
+          </div>
+        </div>
+        <button class="bell-btn" title="Notifikasi" onclick="showToast('Tidak ada notifikasi baru')">
+          <svg class="icon-svg"><use href="#ic-bell"/></svg>
+          <span class="bell-badge">3</span>
+        </button>
+        <div class="tb-pill">
+          <div class="tb-icon-circle"><svg class="icon-svg" style="width:17px;height:17px;"><use href="#ic-calendar"/></svg></div>
+          <div class="tb-lines">
+            <div class="tb-line1" id="clockDate">—</div>
+            <div class="tb-line2" id="clockTime">—</div>
+          </div>
+          <svg class="icon-svg chev" style="width:15px;height:15px;"><use href="#ic-chevron-down"/></svg>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="logoutAdmin()">Keluar</button>
+      </div>
+    </div>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="section active" id="sec-dashboard">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-top-row">
+            <div class="stat-icon-box"><svg class="icon-svg"><use href="#ic-cart"/></svg></div>
+            <div class="label">Penjualan Hari Ini</div>
+          </div>
+          <div class="value" id="stOmsetHariIni">Rp 0</div>
+          <div class="sub" id="stTrxHariIni">0 transaksi</div>
+          <div class="stat-trend">− 0%</div>
+        </div>
+        <div class="stat-card leaf">
+          <div class="stat-top-row">
+            <div class="stat-icon-box"><svg class="icon-svg"><use href="#ic-trending"/></svg></div>
+            <div class="label">Keuntungan Hari Ini</div>
+          </div>
+          <div class="value" id="stUntungHariIni">Rp 0</div>
+          <div class="sub">Estimasi kotor</div>
+          <div class="stat-trend">− 0%</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-top-row">
+            <div class="stat-icon-box"><svg class="icon-svg"><use href="#ic-users"/></svg></div>
+            <div class="label">Total Hutang Aktif</div>
+          </div>
+          <div class="value" id="stHutangAktif">Rp 0</div>
+          <div class="sub" id="stJmlPelangganHutang">0 pelanggan</div>
+          <div class="stat-trend">− 0%</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-top-row">
+            <div class="stat-icon-box"><svg class="icon-svg"><use href="#ic-package-alert"/></svg></div>
+            <div class="label">Barang Stok Menipis</div>
+          </div>
+          <div class="value" id="stStokMenipis">0</div>
+          <div class="sub">≤ batas minimum</div>
+          <div class="stat-trend">− 0%</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon"><svg class="icon-svg"><use href="#ic-file"/></svg></div>
+              <span class="chead-title">Transaksi Terbaru</span>
+            </div>
+            <button class="btn-link-pill" onclick="showSection('riwayat-transaksi', document.querySelector('[data-target=\'riwayat-transaksi\']'))">Lihat Semua <svg class="icon-svg" style="width:14px;height:14px;"><use href="#ic-arrow-right"/></svg></button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Waktu</th><th>Pelanggan</th><th>Jenis</th><th>Total</th></tr></thead>
+              <tbody id="tblTrxTerbaru"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-left">
+              <div class="card-head-icon"><svg class="icon-svg"><use href="#ic-box"/></svg></div>
+              <span class="chead-title">Stok Menipis</span>
+            </div>
+            <button class="btn-link-pill" onclick="showSection('lap-stok', document.querySelector('[data-target=\'lap-stok\']'))">Lihat Semua <svg class="icon-svg" style="width:14px;height:14px;"><use href="#ic-arrow-right"/></svg></button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Barang</th><th>Sisa</th></tr></thead>
+              <tbody id="tblStokMenipis"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-strip">
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon-svg"><use href="#ic-shield"/></svg></div>
+          <div><div class="feature-title">Aman &amp; Terpercaya</div><div class="feature-desc">Data koperasi Anda aman dan terenkripsi.</div></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon-svg"><use href="#ic-pie"/></svg></div>
+          <div><div class="feature-title">Laporan Akurat</div><div class="feature-desc">Laporan keuangan akurat dan real-time.</div></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon-svg"><use href="#ic-zap"/></svg></div>
+          <div><div class="feature-title">Cepat &amp; Efisien</div><div class="feature-desc">Proses transaksi cepat dan mudah digunakan.</div></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon-svg"><use href="#ic-headset"/></svg></div>
+          <div><div class="feature-title">Dukungan Penuh</div><div class="feature-desc">Kami siap membantu kapan saja Anda butuh.</div></div>
+        </div>
+      </div>
+      <div class="app-footer">© <span id="footerYear">2026</span> Koperasi PT. Cemaru Lestari — Dikelola dari satu koperasi, untuk satu koperasi.</div>
+    </section>
+
+    <!-- ============ TAMBAH BARANG ============ -->
+    <section class="section" id="sec-barang-tambah">
+      <div class="card">
+        <h2>Tambah Barang Baru</h2>
+        <form id="formTambahBarang" onsubmit="return tambahBarang(event)">
+          <div class="form-grid">
+            <div class="field"><label>Nama Barang</label><input type="text" id="b_nama" required placeholder="Contoh: Indomie Goreng"></div>
+            <div class="field"><label>Kategori</label><input type="text" id="b_kategori" list="daftarKategori" placeholder="Contoh: Makanan Instan"><datalist id="daftarKategori"></datalist></div>
+            <div class="field"><label>Harga Beli (Rp)</label><input type="number" id="b_hargabeli" min="0" required placeholder="2500"></div>
+            <div class="field"><label>Harga Jual (Rp)</label><input type="number" id="b_hargajual" min="0" required placeholder="3000"></div>
+            <div class="field"><label>Stok Awal</label><input type="number" id="b_stok" min="0" step="any" required placeholder="50"></div>
+            <div class="field"><label>Satuan Dasar (dipakai untuk stok)</label><input type="text" id="b_satuan" placeholder="pcs / bungkus / kg"></div>
+            <div class="field"><label>Stok Minimum (peringatan)</label><input type="number" id="b_stokmin" min="0" step="any" value="5"></div>
+          </div>
+          <div class="field" style="margin-top:14px;">
+            <label>Satuan Turunan (opsional)</label>
+            <div class="helper-text" style="margin-bottom:8px;">Untuk barang yang dijual dalam beberapa satuan sekaligus, misalnya stok disimpan per "kg" tapi bisa dijual per "karung" (isi 5 kg) atau per "ons" (isi 0.1 kg). Stok akan otomatis terkonversi ke satuan dasar saat kasir memilih satuan ini.</div>
+            <div id="listSatuanTurunanBaru"></div>
+            <button type="button" class="btn btn-outline btn-sm" onclick="tambahBarisSatuanTurunan('listSatuanTurunanBaru')">+ Tambah Satuan Turunan</button>
+          </div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-primary">+ Simpan Barang</button>
+            <button type="reset" class="btn btn-outline" onclick="document.getElementById('listSatuanTurunanBaru').innerHTML='';">Bersihkan Form</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ DAFTAR & EDIT BARANG ============ -->
+    <section class="section" id="sec-barang-daftar">
+      <div class="card">
+        <h2>Daftar Barang</h2>
+        <div class="search-row">
+          <input type="text" id="cariBarang" placeholder="Cari nama barang..." oninput="renderDaftarBarang()">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nama</th><th>Kategori</th><th>Harga Beli</th><th>Harga Jual</th><th>Stok</th><th>Satuan</th><th>Aksi</th></tr></thead>
+            <tbody id="tblDaftarBarang"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PENJUALAN CASH ============ -->
+    <section class="section" id="sec-jual-cash">
+      <div class="two-col">
+        <div class="card">
+          <h2>Pilih Barang</h2>
+          <input type="text" id="cariJualCash" placeholder="Cari barang..." oninput="renderQuickPickCash()" style="margin-bottom:12px;">
+          <div class="quick-grid" id="quickPickCash"></div>
+        </div>
+        <div class="card">
+          <h2>Keranjang Cash</h2>
+          <div id="cartCash"><div class="empty-state"><span class="icon">🛒</span>Keranjang masih kosong</div></div>
+          <div class="total-row"><span>Total</span><span id="totalCash">Rp 0</span></div>
+          <div class="field" style="margin-top:14px;">
+            <label>Uang Diterima (Rp)</label>
+            <input type="number" id="cashDiterima" min="0" oninput="hitungKembalianCash()" placeholder="0">
+          </div>
+          <div class="helper-text" id="kembalianCash">Kembalian: Rp 0</div>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="prosesCash()">✓ Proses Pembayaran</button>
+            <button class="btn btn-outline" onclick="kosongkanCart('cash')">Kosongkan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PENJUALAN HUTANG ============ -->
+    <section class="section" id="sec-jual-hutang">
+      <div class="two-col">
+        <div class="card">
+          <h2>Pilih Barang</h2>
+          <input type="text" id="cariJualHutang" placeholder="Cari barang..." oninput="renderQuickPickHutang()" style="margin-bottom:12px;">
+          <div class="quick-grid" id="quickPickHutang"></div>
+        </div>
+        <div class="card">
+          <h2>Keranjang Hutang</h2>
+          <div class="field" style="margin-bottom:14px;">
+            <label>Nama Pelanggan</label>
+            <input type="text" id="namaPelangganHutang" list="daftarPelanggan" placeholder="Contoh: Bu Siti" required>
+            <datalist id="daftarPelanggan"></datalist>
+            <div class="helper-text" style="margin-top:6px;">Pilih dari daftar yang sudah muncul untuk menghindari nama ganda, atau ketik nama baru.</div>
+          </div>
+          <div id="cartHutang"><div class="empty-state"><span class="icon">🛒</span>Keranjang masih kosong</div></div>
+          <div class="total-row"><span>Total Hutang</span><span id="totalHutang">Rp 0</span></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="prosesHutang()">✓ Catat sebagai Hutang</button>
+            <button class="btn btn-outline" onclick="kosongkanCart('hutang')">Kosongkan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RIWAYAT TRANSAKSI ============ -->
+    <section class="section" id="sec-riwayat-transaksi">
+      <div class="card">
+        <h2>Riwayat Transaksi</h2>
+        <div class="filter-bar">
+          <div class="field"><label>Dari Tanggal</label><input type="date" id="filterTrxDari"></div>
+          <div class="field"><label>Sampai Tanggal</label><input type="date" id="filterTrxSampai"></div>
+          <div class="field">
+            <label>Jenis</label>
+            <select id="filterTrxJenis">
+              <option value="">Semua</option>
+              <option value="cash">Cash</option>
+              <option value="hutang">Hutang</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="height:42px;" onclick="renderRiwayatTransaksi()">Tampilkan</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu</th><th>Pelanggan</th><th>Jenis</th><th>Item</th><th>Total</th><th>Untung</th><th style="min-width:190px;">Aksi</th></tr></thead>
+            <tbody id="tblRiwayatTransaksi"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DAFTAR HUTANG ============ -->
+    <section class="section" id="sec-daftar-hutang">
+      <div class="card">
+        <h2>Daftar Hutang Aktif (per Pelanggan)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pelanggan</th><th>Total Hutang</th><th>Sudah Dibayar</th><th>Sisa Hutang</th><th>Status</th></tr></thead>
+            <tbody id="tblDaftarHutang"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PEMBAYARAN HUTANG ============ -->
+    <section class="section" id="sec-bayar-hutang">
+      <div class="card">
+        <h2>Pembayaran Hutang</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Pilih Pelanggan</label>
+            <select id="bayarPelanggan" onchange="updateInfoSisaHutang()"></select>
+          </div>
+          <div class="field">
+            <label>Sisa Hutang Saat Ini</label>
+            <input type="text" id="infoSisaHutang" disabled value="Rp 0">
+          </div>
+          <div class="field">
+            <label>Uang Diterima (Rp)</label>
+            <input type="number" id="jumlahBayarHutang" min="0" oninput="hitungKembalianHutang()" placeholder="0">
+          </div>
+        </div>
+        <div class="helper-text" id="kembalianHutang" style="margin-top:6px;font-size:14px;font-weight:600;">Kembalian: Rp 0</div>
+        <div class="btn-row">
+          <button class="btn btn-success" onclick="prosesBayarHutang()">✓ Simpan Pembayaran</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RIWAYAT PEMBAYARAN ============ -->
+    <section class="section" id="sec-riwayat-bayar">
+      <div class="card">
+        <h2>Riwayat Pembayaran Hutang</h2>
+        <div class="search-row">
+          <input type="text" id="cariRiwayatBayar" placeholder="Cari nama pelanggan..." oninput="renderRiwayatBayar()">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu</th><th>Pelanggan</th><th>Jumlah Bayar</th><th>Aksi</th></tr></thead>
+            <tbody id="tblRiwayatBayar"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STOK MASUK ============ -->
+    <section class="section" id="sec-stok-masuk">
+      <div class="card">
+        <h2>Tambah Stok Masuk</h2>
+        <form id="formStokMasuk" onsubmit="return prosesStokMasuk(event)">
+          <div class="form-grid">
+            <div class="field">
+              <label>Pilih Barang</label>
+              <select id="masukBarang" required onchange="renderSatuanPilihanStok('masukBarang','masukSatuan')"></select>
+            </div>
+            <div class="field"><label>Satuan</label><select id="masukSatuan"></select></div>
+            <div class="field"><label>Jumlah Masuk</label><input type="number" id="masukJumlah" min="0" step="any" required></div>
+            <div class="field"><label>Keterangan (opsional)</label><input type="text" id="masukKet" placeholder="Contoh: Restok dari distributor"></div>
+          </div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-success">+ Tambahkan Stok</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ STOK KELUAR ============ -->
+    <section class="section" id="sec-stok-keluar">
+      <div class="card">
+        <h2>Stok Keluar (di luar penjualan)</h2>
+        <p class="helper-text" style="margin-bottom:14px;">Gunakan untuk barang rusak, hilang, kadaluwarsa, atau dipakai sendiri. Stok keluar dari penjualan sudah otomatis tercatat di menu Transaksi.</p>
+        <form id="formStokKeluar" onsubmit="return prosesStokKeluar(event)">
+          <div class="form-grid">
+            <div class="field">
+              <label>Pilih Barang</label>
+              <select id="keluarBarang" required onchange="renderSatuanPilihanStok('keluarBarang','keluarSatuan')"></select>
+            </div>
+            <div class="field"><label>Satuan</label><select id="keluarSatuan"></select></div>
+            <div class="field"><label>Jumlah Keluar</label><input type="number" id="keluarJumlah" min="0" step="any" required></div>
+            <div class="field"><label>Alasan</label>
+              <select id="keluarAlasan">
+                <option>Rusak</option>
+                <option>Hilang</option>
+                <option>Kadaluwarsa</option>
+                <option>Pakai Sendiri</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-primary">− Catat Stok Keluar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ RIWAYAT STOK ============ -->
+    <section class="section" id="sec-riwayat-stok">
+      <div class="card">
+        <h2>Riwayat Pergerakan Stok</h2>
+        <div class="search-row">
+          <input type="text" id="cariRiwayatStok" placeholder="Cari nama barang..." oninput="renderRiwayatStok()">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu</th><th>Barang</th><th>Jenis</th><th>Jumlah</th><th>Keterangan</th><th>Aksi</th></tr></thead>
+            <tbody id="tblRiwayatStok"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LAPORAN PENJUALAN ============ -->
+    <section class="section" id="sec-lap-penjualan">
+      <div class="card">
+        <h2>Laporan Penjualan</h2>
+        <div class="pill-tabs">
+          <div class="pill-tab active" data-p="harian" onclick="setPeriodeLaporan('penjualan','harian',this)">Harian</div>
+          <div class="pill-tab" data-p="bulanan" onclick="setPeriodeLaporan('penjualan','bulanan',this)">Bulanan</div>
+          <div class="pill-tab" data-p="semua" onclick="setPeriodeLaporan('penjualan','semua',this)">Semua</div>
+        </div>
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+          <div class="stat-card"><div class="label">Total Omset</div><div class="value" id="lapPenjualanOmset">Rp 0</div></div>
+          <div class="stat-card leaf"><div class="label">Jumlah Transaksi</div><div class="value" id="lapPenjualanJumlah">0</div></div>
+          <div class="stat-card turmeric"><div class="label">Rata-rata / Transaksi</div><div class="value" id="lapPenjualanRata">Rp 0</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu</th><th>Pelanggan</th><th>Jenis</th><th>Total</th></tr></thead>
+            <tbody id="tblLapPenjualan"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LAPORAN HUTANG ============ -->
+    <section class="section" id="sec-lap-hutang">
+      <div class="card">
+        <h2>Laporan Hutang</h2>
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+          <div class="stat-card turmeric"><div class="label">Total Hutang Diberikan</div><div class="value" id="lapHutangTotal">Rp 0</div></div>
+          <div class="stat-card leaf"><div class="label">Total Sudah Dibayar</div><div class="value" id="lapHutangDibayar">Rp 0</div></div>
+          <div class="stat-card"><div class="label">Sisa Belum Dibayar</div><div class="value" id="lapHutangSisa">Rp 0</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pelanggan</th><th>Total Hutang</th><th>Dibayar</th><th>Sisa</th><th>Status</th></tr></thead>
+            <tbody id="tblLapHutang"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LAPORAN STOK ============ -->
+    <section class="section" id="sec-lap-stok">
+      <div class="card">
+        <h2>Laporan Stok</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Barang</th><th>Stok Saat Ini</th><th>Stok Minimum</th><th>Status</th><th>Nilai Stok (Modal)</th></tr></thead>
+            <tbody id="tblLapStok"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LAPORAN KEUNTUNGAN ============ -->
+    <section class="section" id="sec-lap-untung">
+      <div class="card">
+        <h2>Laporan Keuntungan</h2>
+        <div class="pill-tabs">
+          <div class="pill-tab active" data-p="harian" onclick="setPeriodeLaporan('untung','harian',this)">Harian</div>
+          <div class="pill-tab" data-p="bulanan" onclick="setPeriodeLaporan('untung','bulanan',this)">Bulanan</div>
+          <div class="pill-tab" data-p="semua" onclick="setPeriodeLaporan('untung','semua',this)">Semua</div>
+        </div>
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+          <div class="stat-card"><div class="label">Total Omset</div><div class="value" id="lapUntungOmset">Rp 0</div></div>
+          <div class="stat-card ink"><div class="label">Total Modal</div><div class="value" id="lapUntungModal">Rp 0</div></div>
+          <div class="stat-card leaf"><div class="label">Estimasi Keuntungan</div><div class="value" id="lapUntungLaba">Rp 0</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu</th><th>Omset</th><th>Modal</th><th>Untung</th></tr></thead>
+            <tbody id="tblLapUntung"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BACKUP & RESTORE ============ -->
+    <section class="section" id="sec-backup">
+      <div class="card">
+        <h2>📦 Ringkasan Data Tersimpan</h2>
+        <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="stat-card"><div class="label">Barang</div><div class="value" id="bkJmlBarang">0</div></div>
+          <div class="stat-card leaf"><div class="label">Transaksi</div><div class="value" id="bkJmlTransaksi">0</div></div>
+          <div class="stat-card turmeric"><div class="label">Pembayaran Hutang</div><div class="value" id="bkJmlBayar">0</div></div>
+          <div class="stat-card ink"><div class="label">Log Stok</div><div class="value" id="bkJmlStokLog">0</div></div>
+        </div>
+        <div class="helper-text" id="bkInfoTerakhir" style="margin-top:-8px;margin-bottom:4px;"></div>
+        <div class="helper-text">Semua data di atas tersimpan lokal di browser ini (localStorage), tanpa internet. Lakukan backup secara berkala agar data tidak hilang jika cache browser dibersihkan atau ganti device.</div>
+      </div>
+
+      <div class="card">
+        <h2>⬇️ Backup (Unduh Data)</h2>
+        <div class="helper-text" style="margin-bottom:14px;">Backup JSON dipakai untuk memulihkan data nanti (cadangan lengkap &amp; akurat). Backup Excel dipakai untuk dilihat, dicetak, atau diolah di Excel/Spreadsheet — tidak bisa di-import kembali.</div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="exportJSON()">⬇️ Unduh Backup JSON</button>
+          <button class="btn btn-success" onclick="exportExcel()">📊 Unduh sebagai Excel (.xls)</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>⬆️ Restore (Pulihkan Data)</h2>
+        <div class="helper-text" style="margin-bottom:14px;">Pilih file backup JSON (.json) yang pernah diunduh. <strong>Perhatian:</strong> proses ini akan menggantikan seluruh data yang ada saat ini di aplikasi dengan data dari file backup.</div>
+        <div class="field" style="max-width:420px;">
+          <label>File Backup (.json)</label>
+          <input type="file" id="importFileInput" accept="application/json,.json" onchange="importJSON(event)">
+        </div>
+      </div>
+      <div class="signature-mark">🏪 Koperasi PT. Cemaru Lestari — backup rutin, koperasi lebih aman</div>
+    </section>
+
+    <!-- ============ SAMPAH / UNDO HAPUS ============ -->
+    <section class="section" id="sec-sampah">
+      <div class="card">
+        <h2>🗑️ Sampah (Undo Hapus)</h2>
+        <p class="helper-text" style="margin-bottom:14px;">Berisi maksimal 30 item terbaru yang baru saja dihapus (barang, transaksi, pembayaran, riwayat stok). Item bisa dipulihkan selama masih ada di daftar ini. Item lama akan otomatis terdesak keluar oleh item baru yang dihapus.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waktu Hapus</th><th>Tipe</th><th>Ringkasan</th><th>Aksi</th></tr></thead>
+            <tbody id="tblSampah"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AKUN ADMIN ============ -->
+    <section class="section" id="sec-akun-admin">
+      <div class="card">
+        <h2>👤 Edit Profil Admin</h2>
+        <form id="formProfilAdmin" onsubmit="return simpanProfilAdmin(event)">
+          <div class="form-grid">
+            <div class="field"><label>Nama Admin</label><input type="text" id="adm_nama" required placeholder="Nama lengkap admin"></div>
+            <div class="field"><label>Username</label><input type="text" id="adm_username" required placeholder="username untuk login"></div>
+          </div>
+          <div class="helper-text" style="margin-top:6px;">Username ini dipakai untuk login ke aplikasi. Pastikan mudah diingat dan tidak dibagikan sembarangan.</div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-primary">💾 Simpan Profil</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>🔒 Ganti Password Admin</h2>
+        <form id="formGantiPassword" onsubmit="return gantiPasswordAdmin(event)">
+          <div class="form-grid">
+            <div class="field"><label>Password Lama</label><input type="password" id="adm_pass_lama" required autocomplete="current-password"></div>
+            <div class="field"><label>Password Baru</label><input type="password" id="adm_pass_baru" required minlength="4" autocomplete="new-password"></div>
+            <div class="field"><label>Ulangi Password Baru</label><input type="password" id="adm_pass_ulang" required minlength="4" autocomplete="new-password"></div>
+          </div>
+          <div class="helper-text" style="margin-top:6px;">Password minimal 4 karakter. Setelah diganti, gunakan password baru saat login berikutnya.</div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-primary">🔒 Ganti Password</button>
+          </div>
+        </form>
+      </div>
+      <div class="signature-mark">🏪 Koperasi PT. Cemaru Lestari — jaga keamanan akun admin Anda.</div>
+    </section>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- RECEIPT MODAL -->
+<div class="receipt-modal-bg" id="receiptModalBg">
+  <div class="receipt" id="receiptContent"></div>
+</div>
+<script src="script.js"> 
+</script>
+</body>
+</html>
